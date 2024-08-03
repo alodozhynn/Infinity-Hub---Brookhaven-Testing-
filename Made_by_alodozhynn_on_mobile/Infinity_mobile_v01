@@ -1,0 +1,107 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Infinity Hub Brookhaven [[beta]]", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local mainTab = Window:MakeTab({
+    Name = "Main/Trolling",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local adminTab = Window:MakeTab({
+    Name = "Admin",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local teleportesTab = Window:MakeTab({
+    Name = "Teleportes",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+OrionLib:MakeNotification({
+    Name = "Infinity Brookhaven",
+    Content = "Made by Alodozhynn",
+    Image = "rbxassetid://4483345998",
+    Time = 5
+})
+
+mainTab:AddButton({
+    Name = "Matar Jogador [precisa de um equipamento]",
+    Callback = function()
+        -- Teleporta o jogador para uma coordenada longe no eixo X
+        rootPart.CFrame = CFrame.new(1000000, 0, 0)
+    end    
+})
+
+mainTab:AddButton({
+    Name = "Enviar pro Infinito",
+    Callback = function()
+        -- Teleporta o jogador para uma altura de 1.000.000
+        rootPart.CFrame = CFrame.new(0, 1000000, 0)
+    end    
+})
+
+mainTab:AddButton({
+    Name = "Mobile Fly",
+    Callback = function()
+        loadstring(game:HttpGet('https://gist.githubusercontent.com/meozoneYT/bf037df9f0a7001973404ddd67fdcfdc37f0da27d2c6d953d2a2dc5b3e0a7ab0/arcus%25250x%25250a%25250f%25250f%25250c%25250f%25250c%25250a%25250c%25250b%25250e%25250c%25250a%25250d%25250e%25250b%25250f%25250e%25250c%25250b%25250e%25250b%25250e%25250d%25250b%25250b%25250d%25250b%25250c%25250e%25250a%25250a%25250b%25250e%25250c%25250c%25250c%25250a%25250a%25250e%25250a%25250a%25250d%25250b%25250d%25250b%25250d%25250b%25250b%25250d%25250b%25250c%25250e%25250a%25250a%25250b%25250e%25250c%25250c%25250a%25250a%25250e%25250a%25250a%25250d%25250b%25250d%25250b%25250b%25250a%25250c%25250d%25250a%25250d%25250a%25250d%25250a%25250d%25250d%25250e%25250b%25250c%25250e%25250c%25250a%25250d%25250a%25250e%25250a%25250b%25250b%25250c%25250a%25250e%25250d%25250a%25250e%25250d%25250c%25250b%25250d%25250a%25250b%25250a%25250b%25250e%25250e%25250b%25250e%25250d%25250d%25250a%25250b%25250b%25250b%25250d%25250e%25250d%25250e%25250c%25250b%25250d%25250b%25250a%25250e%25250d%25250b%25250e%25250d%25250b%25250d%25250b%25250b%25250e%25250e%25250e%25250c%25250d%25250c%25250d%25250b%25250d%25250a%25250a%25250b%25250c%25250a%25250c%25250b%25250d%25250b%25250d%25250a%25250e%25250c%25250a%25250e%25250b%25250e%25250a%25250b%25250d%25250a%25250a%25250b%25250b%25250d%25250a%25250a%25250e%25250b%25250b%25250a%25250b%25250a%25250c%25250c%25250a%25250e%25250b%25250e%25250d%25250a%25250e%25250a%25250d%25250b%25250b%25250c%25250b%25250e%25250b%25250a%25250c%25250e%25250b%25250d%25250b%25250a%25250e%25250d%25250a%25250a%25250b%25250c%25250a%25250c%25250a%25250d%25250d%25250b%25250e%25250a%25250d%25250a%25250e%25250c%25250e%25250d%25250a%25250c%25250d%25250b%25250a%25250a%25250a%25250d%25250d%25250d%25250b%25250b%25250a%25250a%25250d%25250d%25250d%25250a%25250a%25250b%25250c%25250e%25250d%25250a%25250c%25250b%25250e%25250b%25250e%25250e%'))()
+    end    
+})
+
+-- Teleportes Tab with all teleport buttons
+teleportesTab:AddButton({
+    Name = "Delegacia",
+    Callback = function()
+        rootPart.CFrame = CFrame.new(-107, 3, 35)
+    end    
+})
+
+teleportesTab:AddButton({
+    Name = "Hospital",
+    Callback = function()
+        rootPart.CFrame = CFrame.new(-333, 4, 36)
+    end    
+})
+
+teleportesTab:AddButton({
+    Name = "Escola",
+    Callback = function()
+        rootPart.CFrame = CFrame.new(-324, 4, 203)
+    end    
+})
+
+teleportesTab:AddButton({
+    Name = "Banco do Brookhv",
+    Callback = function()
+        rootPart.CFrame = CFrame.new(12, 3, 268)
+    end    
+})
+
+teleportesTab:AddButton({
+    Name = "Mercado",
+    Callback = function()
+        rootPart.CFrame = CFrame.new(-23, 3, -128)
+    end    
+})
+
+teleportesTab:AddButton({
+    Name = "Shopping",
+    Callback = function()
+        rootPart.CFrame = CFrame.new(161, 11, -166)
+    end    
+})
+
+teleportesTab:AddButton({
+    Name = "Aeroporto",
+    Callback = function()
+        rootPart.CFrame = CFrame.new(356, 14, 107)
+    end    
+})
+
+teleportesTab:AddButton({
+    Name = "Início/Lobby",
+    Callback = function()
+        rootPart.CFrame = CFrame.new(-10, 23, 53)
+    end    
+})
