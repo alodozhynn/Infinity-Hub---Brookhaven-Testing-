@@ -28,6 +28,22 @@ mainTab:AddButton({
     end    
 })
 
+mainTab:AddButton({
+    Name = "Matar Jogador [precisa de um equipamento]",
+    Callback = function()
+        -- Teleporta o jogador para uma coordenada longe no eixo X
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1000000, 0, 0)
+    end    
+})
+
+mainTab:AddButton({
+    Name = "Enviar pro Infinito",
+    Callback = function()
+        -- Teleporta o jogador para uma altura de 1.000.000
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 1000000, 0)
+    end    
+})
+
 -- Teleportes Tab with all teleport buttons
 teleportesTab:AddButton({
     Name = "Delegacia",
