@@ -7,8 +7,14 @@ local mainTab = Window:MakeTab({
     PremiumOnly = false
 })
 
-local teleportesTab = Window:MakeTab({
-    Name = "Teleportes",
+local visualTab = Window:MakeTab({
+    Name = "Visual/Cliente",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local adminTab = Window:MakeTab({
+    Name = "Admin Scripts",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
@@ -20,83 +26,183 @@ OrionLib:MakeNotification({
     Time = 5
 })
 
--- Fly functionality (replaced with new loadstring)
-mainTab:AddButton({
-    Name = "Mobile Fly",
-    Callback = function()
-        loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
-    end    
+-- Função de voo
+local uis = game:GetService("UserInputService")
+local rs = game:GetService("RunService")
+
+local myPlayer = game.Players.LocalPlayer
+local myChar = myPlayer.Character
+local myHRP = myChar:WaitForChild("HumanoidRootPart")
+local camera = game.Workspace.CurrentCamera
+
+local flying = false
+local speed = 0.5
+
+local bp = Instance.new("BodyPosition", myHRP)
+bp.MaxForce = Vector3.new()
+bp.D = 10
+bp.P = 10000
+
+local bg = Instance.new("BodyGyro", myHRP)
+bg.MaxTorque = Vector3.new()
+bg.D = 10
+
+function fly()
+    flying = true
+    bp.MaxForce = Vector3.new(400000, 400000, 400000)
+    bg.MaxTorque = Vector3.new(400000, 400000, 400000)
+    while flying do
+        rs.RenderStepped:wait()
+        bp.Position = myHRP.Position + ((myHRP.Position - camera.CFrame.p).unit * speed)
+        bg.CFrame = CFrame.new(camera.CFrame.p, myHRP.Position)
+    end
+end
+
+function endFlying()
+    bp.MaxForce = Vector3.new()
+    bg.MaxTorque = Vector3.new()
+    flying = false
+end
+
+uis.InputBegan:connect(function(input)
+    if input.KeyCode == Enum.KeyCode.Space then
+        if not flying then
+            fly()
+        else
+            endFlying()
+        end
+    end
+end)
+
+-- Função para teleportar jogador e matar jogador
+local function teleportAndKillPlayer(targetPlayer)
+    local targetHRP = targetPlayer.Character:WaitForChild("HumanoidRootPart")
+    myHRP.CFrame = CFrame.new(-83, 19, -130)
+    wait(1)  -- Esperar um segundo para garantir que o teleporte inicial foi concluído
+    local connection
+    connection = game:GetService("RunService").Stepped:Connect(function()
+        myHRP.CFrame = targetHRP.CFrame
+        if targetHRP.Sit then
+            myHRP.CFrame = CFrame.new(500000000, 0, 1827)
+            connection:Disconnect()
+        end
+    end)
+end
+
+-- Lista de jogadores para selecionar
+local players = game.Players:GetPlayers()
+local selectedPlayer
+
+local dropdownOptions = {}
+for i, player in ipairs(players) do
+    table.insert(dropdownOptions, player.Name)
+end
+
+mainTab:AddDropdown({
+    Name = "Selecionar Jogador",
+    Default = "",
+    Options = dropdownOptions,
+    Callback = function(value)
+        selectedPlayer = game.Players:FindFirstChild(value)
+    end
 })
 
 mainTab:AddButton({
     Name = "Matar Jogador [precisa de um equipamento]",
     Callback = function()
-        -- Teleporta o jogador para uma coordenada longe no eixo X
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1000000, 0, 0)
+        if selectedPlayer then
+            teleportAndKillPlayer(selectedPlayer)
+        else
+            print("Nenhum jogador selecionado.")
+        end
     end    
 })
 
 mainTab:AddButton({
     Name = "Enviar pro Infinito",
     Callback = function()
-        -- Teleporta o jogador para uma altura de 1.000.000
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 1000000, 0)
+        myHRP.CFrame = CFrame.new(0, 1000000, 0)
     end    
 })
 
--- Teleportes Tab with all teleport buttons
-teleportesTab:AddButton({
+-- Botões para a aba Visual/Cliente
+visualTab:AddButton({
     Name = "Delegacia",
     Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-107, 3, 35)
+        myHRP.CFrame = CFrame.new(-107, 3, 35)
     end    
 })
 
-teleportesTab:AddButton({
+visualTab:AddButton({
     Name = "Hospital",
     Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-333, 4, 36)
+        myHRP.CFrame = CFrame.new(-333, 4, 36)
     end    
 })
 
-teleportesTab:AddButton({
+visualTab:AddButton({
     Name = "Escola",
     Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-324, 4, 203)
+        myHRP.CFrame = CFrame.new(-324, 4, 203)
     end    
 })
 
-teleportesTab:AddButton({
-    Name = "Banco do Brookhv",
+visualTab:AddButton({
+    Name = "Banco do Brookhaven",
     Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(12, 3, 268)
+        myHRP.CFrame = CFrame.new(12, 3, 268)
     end    
 })
 
-teleportesTab:AddButton({
+visualTab:AddButton({
     Name = "Mercado",
     Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-23, 3, -128)
+        myHRP.CFrame = CFrame.new(-23, 3, -128)
     end    
 })
 
-teleportesTab:AddButton({
+visualTab:AddButton({
     Name = "Shopping",
     Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(161, 11, -166)
+        myHRP.CFrame = CFrame.new(161, 11, -166)
     end    
 })
 
-teleportesTab:AddButton({
+visualTab:AddButton({
     Name = "Aeroporto",
     Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(356, 14, 107)
+        myHRP.CFrame = CFrame.new(356, 14, 107)
     end    
 })
 
-teleportesTab:AddButton({
+visualTab:AddButton({
     Name = "Início/Lobby",
     Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-10, 23, 53)
+        myHRP.CFrame = CFrame.new(-10, 23, 53)
     end    
 })
+
+-- Botões para a aba Admin Scripts
+adminTab:AddButton({
+    Name = "Infinite Yield",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end    
+})
+
+adminTab:AddButton({
+    Name = "Nameless Admin",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()
+    end    
+})
+
+adminTab:AddButton({
+    Name = "System Hub 2.0.0",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/AHMEDPLPL/System-hub/main/System%20hub%20V2', true))()
+    end    
+})
+
+-- Inicializando a biblioteca Orion
+OrionLib:Init()
