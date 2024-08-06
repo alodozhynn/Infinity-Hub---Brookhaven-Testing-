@@ -82,7 +82,9 @@ local function teleportAndKillPlayer(targetPlayer)
     local connection
     connection = game:GetService("RunService").Stepped:Connect(function()
         myHRP.CFrame = targetHRP.CFrame
-        if targetHRP.Sit then
+        -- Verifique se o jogador alvo está sentado
+        if targetPlayer.Character and targetPlayer.Character:FindFirstChild("Humanoid") and targetPlayer.Character.Humanoid.Sit then
+            -- Jogador alvo está sentado, pare de teletransportar
             myHRP.CFrame = CFrame.new(17, 0, 17)
             connection:Disconnect()
         end
