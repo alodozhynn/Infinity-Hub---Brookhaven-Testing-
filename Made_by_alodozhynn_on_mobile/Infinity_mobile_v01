@@ -85,7 +85,7 @@ local function teleportAndKillPlayer(targetPlayer)
         -- Verifique se o jogador alvo está sentado
         if targetPlayer.Character and targetPlayer.Character:FindFirstChild("Humanoid") and targetPlayer.Character.Humanoid.Sit then
             -- Jogador alvo está sentado, pare de teletransportar
-            myHRP.CFrame = CFrame.new(17, 0, 17)
+            myHRP.CFrame = CFrame.new(500000, 0, 0)
             connection:Disconnect()
         end
     end)
