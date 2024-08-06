@@ -3,19 +3,19 @@ local Window = OrionLib:MakeWindow({Name = "Infinity Hub Brookhaven [[beta]]", H
 
 local mainTab = Window:MakeTab({
     Name = "Main/Trolling",
-    Icon = "rbxassetid://4483345998",
+    Icon = "rbxassetid://18837606113",
     PremiumOnly = false
 })
 
 local visualTab = Window:MakeTab({
     Name = "Visual/Cliente",
-    Icon = "rbxassetid://4483345998",
+    Icon = "rbxassetid://18837725784",
     PremiumOnly = false
 })
 
 local adminTab = Window:MakeTab({
     Name = "Admin Scripts",
-    Icon = "rbxassetid://4483345998",
+    Icon = "rbxassetid://18837697300",
     PremiumOnly = false
 })
 
