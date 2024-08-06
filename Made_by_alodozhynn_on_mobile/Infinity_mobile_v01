@@ -83,7 +83,7 @@ local function teleportAndKillPlayer(targetPlayer)
     connection = game:GetService("RunService").Stepped:Connect(function()
         myHRP.CFrame = targetHRP.CFrame
         if targetHRP.Sit then
-            myHRP.CFrame = CFrame.new(0,0,0)
+            myHRP.CFrame = CFrame.new(17, 0, 17)
             connection:Disconnect()
         end
     end)
