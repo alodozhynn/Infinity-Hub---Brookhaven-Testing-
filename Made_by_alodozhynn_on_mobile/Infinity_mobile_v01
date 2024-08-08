@@ -21,7 +21,7 @@ local adminTab = Window:MakeTab({
 
 local itemsTab = Window:MakeTab({
     Name = "Alguns itens",
-    Icon = "rbxassetid://18837606113", -- Escolha um ícone adequado
+    Icon = "rbxassetid://18837606113",
     PremiumOnly = false
 })
 
@@ -219,28 +219,28 @@ itemsTab:AddButton({
 })
 
 itemsTab:AddButton({
-    Name = "Aparelho Desconhecido que encontrei no Hospital",
+    Name = "Aparelho Desconhecido",
     Callback = function()
         myHRP.CFrame = CFrame.new(-272, 2, 60)
     end    
 })
 
 itemsTab:AddButton({
-    Name = "Aparelho de Zoom com luz",
+    Name = "Aparelho de Zoom",
     Callback = function()
         myHRP.CFrame = CFrame.new(-316, 5, 62)
     end    
 })
 
 itemsTab:AddButton({
-    Name = "Medicamento ai",
+    Name = "Medicamento",
     Callback = function()
         myHRP.CFrame = CFrame.new(-336, 3, 28)
     end    
 })
 
 itemsTab:AddButton({
-    Name = "Livro (volta as aulas referencia?)",
+    Name = "Livro",
     Callback = function()
         myHRP.CFrame = CFrame.new(-333, 4, 170)
     end    
@@ -254,7 +254,7 @@ itemsTab:AddButton({
 })
 
 itemsTab:AddButton({
-    Name = "Cartão do Cofre (pra que tu quer isso 🤨🤨🤨 ?)",
+    Name = "Cartão do Cofre",
     Callback = function()
         myHRP.CFrame = CFrame.new(6, 2, 269)
     end    
@@ -296,8 +296,5 @@ adminTab:AddButton({
     end    
 })
 
-adminTab:AddButton({
-    Name = "Coming soon",
-    Callback = function()
-        end
+-- Inicializando a biblioteca Orion
 OrionLib:Init()
