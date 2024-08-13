@@ -295,6 +295,184 @@ adminTab:AddButton({
         loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()
     end    
 })
+-- Cria uma nova tab chamada "Chat"
+local chatTab = Window:MakeTab({
+    Name = "Chat",
+    Icon = "rbxassetid://18837606113",
+    PremiumOnly = false
+})
 
+-- Adiciona um label com a dica
+chatTab:AddLabel("Dica: Você quer mandar uma mensagem falsa? 👇")
+
+-- Adiciona uma seção chamada "Mensagens falsas (still beta, may have errors)"
+chatTab:AddSection({
+    Name = "Mensagens falsas (still beta, may have errors)"
+})
+
+-- Adiciona um botão para enviar a mensagem de shutdown
+chatTab:AddButton({
+    Name = "Mensagem de shutdown",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local message = "texto do n seeei\n\n[Mensagem do servidor] O servidor vai ser derrubado em 118 segundos, por problemas de conexão com nossos servidores da plataforma."
+        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
+    end    
+})
+
+-- Adiciona um botão para enviar a mensagem global falsa
+chatTab:AddButton({
+    Name = "Mensagem global, mas falsa",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local message = "normal né, dboa\n\n[Mensagem global do desenvolvedor] hello guys how are u all im wolf paq loool asdf asdf abcdefgh trrtyggttt"
+        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
+    end    
+})
+-- Aba "Veículos"
+local veiculosTab = Window:MakeTab({
+    Name = "Veículos",
+    Icon = "rbxassetid://18837725784",
+    PremiumOnly = false
+})
+
+-- Adiciona a seção "Trollagem usando carros" na aba "Veículos"
+veiculosTab:AddSection({
+    Name = "Trollagem usando carros"
+})
+
+veiculosTab:AddLabel({
+    Name = "Dica: Você já experimentou voar com um carro? Tente agora, no botão abaixo!"
+})
+
+veiculosTab:AddButton({
+    Name = "Voar com um carro",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/GRp9rP98"))()
+    end    
+})
+
+veiculosTab:AddButton({
+    Name = "Deletar carro",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local char = player.Character
+        local hrp = char and char:FindFirstChild("HumanoidRootPart")
+
+        if hrp and hrp.Parent and hrp.Parent:IsA("VehicleSeat") then
+            -- Resetar o jogador se estiver sentado em um carro
+            player.Character:BreakJoints()
+        else
+            OrionLib:MakeNotification({
+                Name = "Você precisa entrar no carro",
+                Content = "Você só pode remover um carro se entrar nele.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end    
+})
+
+-- Aba "Chat"
+local chatTab = Window:MakeTab({
+    Name = "Chat",
+    Icon = "rbxassetid://18837606113",
+    PremiumOnly = false
+})
+
+-- Adiciona a seção "Mensagens falsas (still beta, may have errors)" na aba "Chat"
+chatTab:AddSection({
+    Name = "Mensagens falsas (still beta, may have errors)"
+})
+
+chatTab:AddLabel({
+    Name = "Dica: Você quer mandar uma mensagem falsa? 👇"
+})
+
+chatTab:AddButton({
+    Name = "Mensagem de shutdown",
+    Callback = function()
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+            "texto do n seeei\n[Mensagem do servidor] O servidor vai ser derrubado em 118 segundos, por problemas de conexão com nossos servidores da plataforma.",
+            "All"
+        )
+    end    
+})
+
+chatTab:AddButton({
+    Name = "Mensagem global, mas falsa",
+    Callback = function()
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(
+            "normal né, dboa\n[Mensagem global do desenvolvedor] hello guys how are u all im wolf paq loool asdf asdf abcdefgh trrtyggttt",
+            "All"
+        )
+    end    
+})
+-- Aba "Tutoriais"
+local tutorialsTab = Window:MakeTab({
+    Name = "Tutoriais",
+    Icon = imageID,
+    PremiumOnly = false
+})
+
+-- Adiciona a seção e os labels na aba "Tutoriais"
+tutorialsTab:AddSection({
+    Name = "Tutoriais"
+})
+
+tutorialsTab:AddLabel({
+    Name = "Como ser desbanido de uma casa? saia do jogo e entre dnv."
+})
+
+tutorialsTab:AddLabel({
+    Name = "Como spawnar um carro premium sem ter premium? sla, não tenho acesso aos armazenamentos do jogo."
+})
+
+tutorialsTab:AddLabel({
+    Name = "Como parar de sofrer bullying por ter cabeça pequena? só usar esse id '1048037'."
+})
+
+tutorialsTab:AddLabel({
+    Name = "Como ter um amigo que mora em um abacaxi no fundo do mar? só usar esse id: 208660809."
+})
+-- Cria a nova tab "Casas"
+local casasTab = Window:MakeTab({
+    Name = "Casas",
+    Icon = "rbxassetid://8834748103",
+    PremiumOnly = false
+})
+
+-- Adiciona a seção "Ser desbanido de uma casa"
+casasTab:AddSection({
+    Name = "Ser desbanido de uma casa"
+})
+
+-- Adiciona o botão "Método 1, entrar dnv"
+casasTab:AddButton({
+    Name = "Método 1, entrar dnv",
+    Callback = function()
+        -- Reentra no jogo no mesmo servidor
+        local player = game.Players.LocalPlayer
+        if player then
+            -- Teleporta para o mesmo servidor
+            local teleportService = game:GetService("TeleportService")
+            teleportService:Teleport(game.PlaceId, player)
+        end
+    end
+})
+
+-- Adiciona o botão "Método 2: não vai funcionar no Delta, tenho certeza dhshsjsbahsb"
+casasTab:AddButton({
+    Name = "Método 2: não vai funcionar no Delta, tenho certeza dhshsjsbahsb",
+    Callback = function()
+        -- Notificação indicando que o método não funcionará
+        OrionLib:MakeNotification({
+            Name = "Método 2",
+            Content = "Agora não amigo, esse script é pro Delta Executor e não vai funcionar.",
+            Image = "rbxassetid://8834748103",
+            Time = 5
+        })
+    end
+})
 -- Inicializando a biblioteca Orion
 OrionLib:Init()
