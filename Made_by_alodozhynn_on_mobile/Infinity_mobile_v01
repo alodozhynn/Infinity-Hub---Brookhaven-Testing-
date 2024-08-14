@@ -1,27 +1,27 @@
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
-local Window = OrionLib:MakeWindow({Name = "Infinity Mobile Brookhaven 🏡", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest" }) 
+local Window = OrionLib:MakeWindow({Name = "Infinity Nightscript Brookhaven 🏡", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest" }) 
 
 local mainTab = Window:MakeTab({
     Name = "Main/Trolling",
-    Icon = "rbxassetid://18837606113",
+    Icon = "rbxassetid://8834748103",
     PremiumOnly = false
 })
 
 local visualTab = Window:MakeTab({
     Name = "Teleportes + Visual/Cliente",
-    Icon = "rbxassetid://18837725784",
+    Icon = "rbxassetid://8834748103",
     PremiumOnly = false
 })
 
 local adminTab = Window:MakeTab({
     Name = "Admin Scripts",
-    Icon = "rbxassetid://18837697300",
+    Icon = "rbxassetid://8834748103",
     PremiumOnly = false
 })
 
 local itemsTab = Window:MakeTab({
     Name = "Alguns itens",
-    Icon = "rbxassetid://18837606113",
+    Icon = "rbxassetid://8834748103",
     PremiumOnly = false
 })
 
