@@ -1,7 +1,6 @@
-
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
 local Window = OrionLib:MakeWindow({Name = "Infinity Mobile Brookhaven 🏡", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
-
+IntroText = "Nightscript Studios!"
 local mainTab = Window:MakeTab({
     Name = "Main/Trolling",
     Icon = "rbxassetid://18837606113",
