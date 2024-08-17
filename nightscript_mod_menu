@@ -295,7 +295,7 @@ adminTab:AddButton({
         loadstring(game:HttpGet('https://raw.githubusercontent.com/FilteringEnabled/NamelessAdmin/main/Source'))()
     end    
 }) 
--- Adiciona a aba "Chat"
+--- Adiciona a aba "Chat"
 local chatTab = Window:MakeTab({
     Name = "Chat",
     Icon = "rbxassetid://8834748103",
@@ -307,72 +307,141 @@ chatTab:AddSection({
     Name = "Chat bypasser"
 })
 
--- Função para enviar mensagem com texto específico
-local function sendMessage(text)
-    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(text, "All")
+-- Função para copiar o texto para a área de transferência
+local function copyToClipboard(text)
+    setclipboard(text)
 end
 
--- Botão para enviar "Mensagem: YouTube"
+-- Botões para copiar as palavras das redes sociais
 chatTab:AddButton({
-    Name = "Mensagem: YouTube",
+    Name = "Copiar Texto: YouTube",
     Callback = function()
-        sendMessage("Y͜͡o͜͡u͜͡T͜͡u͜͡b͜͡e͜͡")
+        copyToClipboard("Y͜͡o͜͡u͜͡T͜͡u͜͡b͜͡e͜͡")
     end
 })
 
--- Botão para enviar "Mensagem: Instagram"
 chatTab:AddButton({
-    Name = "Mensagem: Instagram",
+    Name = "Copiar Texto: Instagram",
     Callback = function()
-        sendMessage("I͜͡n͜͡s͜͡t͜͡a͜͡g͜͡r͜͡a͜͡m͜͡")
+        copyToClipboard("I͜͡n͜͡s͜͡t͜͡a͜͡g͜͡r͜͡a͜͡m͜͡")
     end
 })
 
--- Botão para enviar "Mensagem: Tik tok"
 chatTab:AddButton({
-    Name = "Mensagem: Tik tok",
+    Name = "Copiar Texto: Tik tok",
     Callback = function()
-        sendMessage("T͜͡i͜͡k͜͡ t͜͡o͜͡k͜͡")
+        copyToClipboard("T͜͡i͜͡k͜͡ t͜͡o͜͡k͜͡")
     end
 })
 
--- Botão para enviar "Mensagem: Twitter"
 chatTab:AddButton({
-    Name = "Mensagem: Twitter",
+    Name = "Copiar Texto: Twitter",
     Callback = function()
-        sendMessage("T͜͡w͜͡i͜͡t͜͡t͜͡e͜͡r͜͡")
+        copyToClipboard("T͜͡w͜͡i͜͡t͜͡t͜͡e͜͡r͜͡")
     end
 })
 
--- Botão para enviar "Mensagem: Kwai"
 chatTab:AddButton({
-    Name = "Mensagem: Kwai",
+    Name = "Copiar Texto: Kwai",
     Callback = function()
-        sendMessage("k͜͡w͜͡a͜͡i͜͡")
+        copyToClipboard("k͜͡w͜͡a͜͡i͜͡")
     end
 })
 
--- Botão para enviar "Mensagem: Discord"
 chatTab:AddButton({
-    Name = "Mensagem: Discord",
+    Name = "Copiar Texto: Discord",
     Callback = function()
-        sendMessage("D͜͡i͜͡s͜͡c͜͡o͜͡r͜͡d͜͡")
+        copyToClipboard("D͜͡i͜͡s͜͡c͜͡o͜͡r͜͡d͜͡")
     end
 })
 
--- Botão para enviar "Mensagem: WhatsApp"
 chatTab:AddButton({
-    Name = "Mensagem: WhatsApp",
+    Name = "Copiar Texto: WhatsApp",
     Callback = function()
-        sendMessage("w͜͡h͜͡a͜͡t͜͡s͜͡ a͜͡p͜͡p͜͡")
+        copyToClipboard("w͜͡h͜͡a͜͡t͜͡s͜͡ a͜͡p͜͡p͜͡")
     end
 })
 
--- Botão para enviar "Mensagem: Twitch"
 chatTab:AddButton({
-    Name = "Mensagem: Twitch",
+    Name = "Copiar Texto: Twitch",
     Callback = function()
-        sendMessage("T͜͡w͜͡i͜͡t͜͡c͜͡h͜͡")
+        copyToClipboard("T͜͡w͜͡i͜͡t͜͡c͜͡h͜͡")
+    end
+})
+
+-- Adiciona a seção "Chat bypasser (números)"
+chatTab:AddSection({
+    Name = "Chat bypasser (números)"
+})
+
+-- Botões para copiar os números de 0 a 9 com os caracteres estilizados
+chatTab:AddButton({
+    Name = "Copiar Número: 0",
+    Callback = function()
+        copyToClipboard("0͜͡")
+    end
+})
+
+chatTab:AddButton({
+    Name = "Copiar Número: 1",
+    Callback = function()
+        copyToClipboard("1͜͡")
+    end
+})
+
+chatTab:AddButton({
+    Name = "Copiar Número: 2",
+    Callback = function()
+        copyToClipboard("2͜͡")
+    end
+})
+
+chatTab:AddButton({
+    Name = "Copiar Número: 3",
+    Callback = function()
+        copyToClipboard("3͜͡")
+    end
+})
+
+chatTab:AddButton({
+    Name = "Copiar Número: 4",
+    Callback = function()
+        copyToClipboard("4͜͡")
+    end
+})
+
+chatTab:AddButton({
+    Name = "Copiar Número: 5",
+    Callback = function()
+        copyToClipboard("5͜͡")
+    end
+})
+
+chatTab:AddButton({
+    Name = "Copiar Número: 6",
+    Callback = function()
+        copyToClipboard("6͜͡")
+    end
+})
+
+chatTab:AddButton({
+    Name = "Copiar Número: 7",
+    Callback = function()
+        copyToClipboard("7͜͡")
+    end
+})
+
+chatTab:AddButton({
+    Name = "Copiar Número: 8",
+    Callback = function()
+        copyToClipboard("8͜͡")
+    end
+})
+
+chatTab:AddButton({
+    Name = "Copiar Número: 9",
+    Callback = function()
+        copyToClipboard("9͜͡")
     end
 })
 -- Inicializando a biblioteca Orion
