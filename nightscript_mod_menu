@@ -67,11 +67,7 @@ mainTab:AddButton({
 mainTab:AddButton({
     Name = "[Sorry, coming soon]",
     Callback = function()
-OrionLib:MakeNotification({
-    Name = "Nightscript Studios",
-    Content = "This doesn't work",
-    Image = "rbxassetid://8834748103",
-    Time = 5        
+print("Nightscript hello world")
     end    
 })
 
