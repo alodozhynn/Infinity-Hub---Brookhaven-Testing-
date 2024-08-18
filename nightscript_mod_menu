@@ -137,51 +137,6 @@ mainTab:AddButton({
         myHRP.CFrame = CFrame.new(0, 0, 0)
     end    
 })
--- Função para alterar o nome do próprio jogador
-local function changeOwnNameInWorkspace(newName)
-    local player = game.Players.LocalPlayer
-    if player and player.Character and player.Character:FindFirstChild("Head") and player.Character.Head:FindFirstChild("NameGUI") then
-        local nameGUI = player.Character.Head.NameGUI
-        nameGUI.TextLabel.Text = newName
-    else
-        print("Não foi possível encontrar o NameGUI do jogador no Workspace.")
-    end
-end
-
--- Adiciona uma aba para alterar o próprio nome
-local mainTab = Window:MakeTab({
-    Name = "Main/Trolling",
-    Icon = "rbxassetid://8834748103",
-    PremiumOnly = false
-})
-
-mainTab:AddSection({
-    Name = "Alterar Nome Próprio"
-})
-
--- Adiciona a textbox para o novo nome
-local newName = ""
-mainTab:AddTextbox({
-    Name = "Seu nome aqui...",
-    Default = "Insira texto",
-    TextChanged = function(text)
-        newName = text
-    end
-})
-
--- Adiciona o botão para alterar o nome
-mainTab:AddButton({
-    Name = "Adicionar o nome",
-    Callback = function()
-        if newName and newName ~= "" then
-            changeOwnNameInWorkspace(newName)
-            print("Nome alterado para " .. newName .. " com sucesso.")
-        else
-            print("Por favor, insira um novo nome.")
-        end
-    end    
-})
-
 -- Atualiza a aba "Teleportes + Visual/Cliente"
 visualTab:AddSection({
     Name = "Teleporte para outros lugares (brookhaven only)"
