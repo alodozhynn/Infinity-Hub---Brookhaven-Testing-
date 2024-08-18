@@ -137,6 +137,56 @@ mainTab:AddButton({
         myHRP.CFrame = CFrame.new(0, 0, 0)
     end    
 })
+-- Variável global para controle de sentar
+local allowSitting = true
+
+-- Função para prevenir que os jogadores se sentem
+local function preventSitting()
+    local function onCharacterAdded(character)
+        local humanoid = character:WaitForChild("Humanoid")
+        humanoid.Seated:Connect(function(_, seated)
+            if not allowSitting then
+                humanoid.Sit = false
+            end
+        end)
+    end
+
+    game.Players.PlayerAdded:Connect(function(player)
+        player.CharacterAdded:Connect(onCharacterAdded)
+        if player.Character then
+            onCharacterAdded(player.Character)
+        end
+    end)
+end
+
+-- Função para permitir que os jogadores se sentem novamente
+local function allowSittingAgain()
+    allowSitting = true
+end
+
+
+
+-- Adiciona o botão para impedir o jogador de se sentar
+mainTab:AddButton({
+    Name = "Não se sentar em lugares e itens",
+    Callback = function()
+        allowSitting = false
+        preventSitting()
+        print("Função de impedir sentar ativada.")
+    end    
+})
+
+-- Adiciona o botão para permitir o jogador se sentar novamente
+mainTab:AddButton({
+    Name = "Voltar a se sentar nos lugares e itens",
+    Callback = function()
+        allowSitting = true
+        print("Agora é possível se sentar em lugares e itens.")
+    end    
+})
+
+-- Inicializa a função para prevenir sentar
+preventSitting()
 -- Atualiza a aba "Teleportes + Visual/Cliente"
 visualTab:AddSection({
     Name = "Teleporte para outros lugares (brookhaven only)"
