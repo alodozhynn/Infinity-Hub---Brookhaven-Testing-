@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
-local Window = OrionLib:MakeWindow({Name = "Infinityyy Nightscript Brookhaven | Made by alodozhynn 🌠", HidePremium = false, IntroEnabled = true, IntroText = "Nightscript Studios !", SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "Infinityyy Nightscript Brookhaven | Made by alodozhynn 🌠", HidePremium = false, IntroEnabled = true, IntroText = "🌠 Nightscript Studios 🌠", SaveConfig = true, ConfigFolder = "OrionTest"})
 local mainTab = Window:MakeTab({
     Name = "Main/Trolling",
     Icon = "rbxassetid://8834748103",
@@ -7,7 +7,7 @@ local mainTab = Window:MakeTab({
 })
 
 local visualTab = Window:MakeTab({
-    Name = "Teleportes + Visual/Cliente",
+    Name = "Teleportes"
     Icon = "rbxassetid://8834748103",
     PremiumOnly = false
 })
@@ -19,7 +19,7 @@ local adminTab = Window:MakeTab({
 })
 
 local itemsTab = Window:MakeTab({
-    Name = "Alguns itens",
+    Name = "Teleportes (de itens)",
     Icon = "rbxassetid://8834748103",
     PremiumOnly = false
 })
@@ -93,40 +93,40 @@ visualTab:AddButton({
 visualTab:AddButton({
     Name = "Escola",
     Callback = function()
-        myHRP.CFrame = CFrame.new(-324, 4, 203)
+        myHRP.CFrame = CFrame.new(-324, 0, 203)
     end    
 })
 
 visualTab:AddButton({
     Name = "Banco do Brookhaven",
     Callback = function()
-        myHRP.CFrame = CFrame.new(12, 3, 268)
+        myHRP.CFrame = CFrame.new(12, 0, 268)
     end    
 })
 
 visualTab:AddButton({
     Name = "Mercado",
     Callback = function()
-        myHRP.CFrame = CFrame.new(-23, 3, -128)
+        myHRP.CFrame = CFrame.new(-23, 0, -128)
     end    
 })
 
 visualTab:AddButton({
     Name = "Shopping",
     Callback = function()
-        myHRP.CFrame = CFrame.new(161, 11, -166)
+        myHRP.CFrame = CFrame.new(161, 0, -166)
     end    
 })
 
 visualTab:AddButton({
     Name = "Aeroporto",
     Callback = function()
-        myHRP.CFrame = CFrame.new(356, 14, 107)
+        myHRP.CFrame = CFrame.new(356, 0, 107)
     end    
 })
 
 visualTab:AddButton({
-    Name = "Início/Lobby",
+    Name = "Início/lobby",
     Callback = function()
         myHRP.CFrame = CFrame.new(0, 0, 0)
     end    
@@ -152,14 +152,14 @@ itemsTab:AddButton({
 })
 
 itemsTab:AddButton({
-    Name = "Aparelho Desconhecido",
+    Name = "Aparelho ai de escutar batimentos",
     Callback = function()
         myHRP.CFrame = CFrame.new(-272, 2, 60)
     end    
 })
 
 itemsTab:AddButton({
-    Name = "Aparelho de Zoom",
+    Name = "Aparelho de luz limpador",
     Callback = function()
         myHRP.CFrame = CFrame.new(-316, 5, 62)
     end    
